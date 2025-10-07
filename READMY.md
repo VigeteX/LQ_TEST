@@ -57,7 +57,7 @@ You can view the latest Allure report here:
 │   ├── main.page.ts          # Page Object for Redmine Main Page
 │   └── search.page.ts        # Page Object for Redmine Search Page
 ├── tests/
-│   ├── 1.spec.ts             # Transition to the search page from main page
+│   ├── [text](tests/transitionToSearchPage.spec.ts).spec.ts             # Transition to the search page from main page
 │   ├── 2.spec.ts             # All checkboxes search with data in "Search" field
 │   ├── 3.spec.ts             # None checkboxes search with data in "Search" field
 │   ├── 4.spec.ts             # Empty field search with all checkboxes check
