@@ -17,7 +17,7 @@ test.describe('Search', () =>{
       'redmine_plugins': true,
     }
 
-    await searchPage.open();
+    await searchPage.open('/projects/redmine/search?scope=subprojects');
 
     await searchPage.fillSearchField('');
 

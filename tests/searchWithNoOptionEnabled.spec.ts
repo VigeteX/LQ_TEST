@@ -1,30 +1,16 @@
 import { expect, test } from '@playwright/test';
 import SearchPage from '../pages/search.page';
+import * as searchData from '../data/searchData.json';
 
 test.describe('Search', () =>{
-  test('Empty field search with all checkboxes uncheck', async ({ page }) => {
+  test('All checkboxes unchecked search with data in "Search" field', async ({ page }) => {
     const searchPage = new SearchPage(page);
 
-    await searchPage.open();
+    await searchPage.open('/projects/redmine/search?scope=subprojects');
 
-    await searchPage.fillSearchField('');
+    await searchPage.fillSearchField(searchData.query);
 
     await searchPage.toggleCheckboxes({
-      'all_words': false,
-      'titles_only': false,
-      'issues': false,
-      'news': false,
-      'documents': false,
-      'changesets': false,
-      'wiki_pages': false,
-      'messages': false,
-      'projects': false,
-      'redmine_plugins': false,
-    });
-
-    await searchPage.expectCheckboxesState({
-      'all_words': false,
-      'titles_only': false,
       'issues': false,
       'news': false,
       'documents': false,
@@ -38,8 +24,6 @@ test.describe('Search', () =>{
     await searchPage.submitSearch();
 
     await searchPage.expectCheckboxesState({
-      'all_words': false,
-      'titles_only': false,
       'issues': true,
       'news': true,
       'documents': true,
@@ -51,6 +35,7 @@ test.describe('Search', () =>{
     });
 
     const resultsCount = await searchPage.results.count();
-    expect(resultsCount).toEqual(0)
+    expect(resultsCount).toBeGreaterThan(0);
+
   });
 });

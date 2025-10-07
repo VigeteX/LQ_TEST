@@ -13,8 +13,7 @@ export default defineConfig({
     ['allure-playwright']
   ],
   use: {
-    
-    baseURL: process.env.BASE_URL,
+    baseURL: 'https://www.redmine.org',
     screenshot: process.env.CI ? 'only-on-failure' : 'on',
     video: process.env.CI ? 'retain-on-failure' : 'on',
     trace: process.env.CI ? 'retain-on-failure' : 'on',

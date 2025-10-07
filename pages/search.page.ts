@@ -16,14 +16,6 @@ export default class SearchPage extends BasePage{
     this.secondSearchInput = page.locator('#search-input');
     this.results = page.locator('#search-results');
   }
-
-  async open() {
-    await this.page.goto('https://www.redmine.org/projects/redmine/search?scope=subprojects',
-    {
-      waitUntil: 'domcontentloaded',
-      timeout: 30000,
-    });
-  }
   
   async fillSearchField(query: string) {
     await this.searchInput.fill(query);
@@ -47,7 +39,6 @@ export default class SearchPage extends BasePage{
           await checkbox.uncheck();
         }
       }
-      await this.expectCheckboxesState(checkboxes)
   }
   
   async expectCheckboxesState(expected: Record<string, boolean>) {

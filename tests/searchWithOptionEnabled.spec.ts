@@ -3,10 +3,10 @@ import SearchPage from '../pages/search.page';
 import * as searchData from '../data/searchData.json';
 
 test.describe('Search', () =>{
-  test('All checkboxes search with data in "Search" field', async ({ page }) => {
+  test('All checkboxes check search with data in "Search" field', async ({ page }) => {
     const searchPage = new SearchPage(page);
 
-    await searchPage.open();
+    await searchPage.open('/projects/redmine/search?scope=subprojects');
 
     await searchPage.fillSearchField(searchData.query);
 
