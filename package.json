@@ -8,6 +8,6 @@
     "test": "npx cypress run",
     "test:edge": "npx cypress run run --config-file cypress.config.edge.ts",
     "test:all": "npm run test && npm run test:edge",
-    "cy:run": "start-server-and-test dev http://localhost:3000 test:all"
+    
   }
 }
