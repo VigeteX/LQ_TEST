@@ -1,0 +1,13 @@
+{
+  "devDependencies": {
+    "cypress": "^15.4.0",
+    "start-server-and-test": "^2.1.2",
+    "typescript": "^5.9.3"
+  },
+  "scripts": {
+    "test": "npx cypress run",
+    "test:edge": "npx cypress run run --config-file cypress.config.edge.ts",
+    "test:all": "npm run test && npm run test:edge",
+    
+  }
+}
