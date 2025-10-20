@@ -66,26 +66,3 @@ cypress
 package.json
 README.md
 tsconfig.json    
-
-
-├── cypress/
-│   ├── e2e/
-│   │   ├── features
-│   │           ├── 1.validSupportRequest.cy.ts                       
-│   │           └── 10.speechToText.cy.ts                              
-│   ├── pages/
-│   │   ├── contactUsPage.ts          # Page Object for Contact Us page
-│   │   ├── mainPage.ts               # Page Object for main Telnyx page
-│   │   └── pricingPage.ts            # Page Object for Pricing page
-│   ├── support/
-│   │   ├── commands.ts               # Custom Cypress commands
-│   │   └── e2e.ts                    # Global hooks and overrides
-│   └── fixtures/
-│       └── test.mp3                  # Audio file with "Hello World" speech
-├── config  
-        ├── cypress.config.ts         # Main Cypress config file
-├──     └── cypress.config.edge.ts    # Config for edge brauser
-├── cypress.config.edge.ts            # Config for edge brauser
-├── package.json
-├── tsconfig.json                     # TypeScript configuration
-└── README.md

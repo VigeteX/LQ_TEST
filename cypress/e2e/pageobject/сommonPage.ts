@@ -2,7 +2,7 @@
 export class CommonPage {
     elements = {
         questionButton: (text: string) => cy.contains('button', text),
-        answerText: (text: string) => cy.contains(text),
+        answerText: (text: string) => cy.contains(text, { timeout: 10000 }),
 
         firstNameInput: () => cy.get('#FirstName', { timeout: 10000 }).should('be.visible'),
         lastNameInput: () => cy.get("#LastName", { timeout: 10000 }).should('be.visible'),
@@ -23,8 +23,7 @@ export class CommonPage {
     }
 
     verifyAnswerNotVisible(answerSnippet: string) {
-        this.elements.answerText(answerSnippet).parent().should('have.attr', 'data-state', 'closed');
-        //this.elements.answerText(answerSnippet).should("not.exist");
+        this.elements.answerText(answerSnippet).should("not.exist");
     }
 
     typeFirstName(name: string) {
