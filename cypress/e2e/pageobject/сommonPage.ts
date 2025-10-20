@@ -23,7 +23,8 @@ export class CommonPage {
     }
 
     verifyAnswerNotVisible(answerSnippet: string) {
-        this.elements.answerText(answerSnippet).should("not.exist");
+        this.elements.answerText(answerSnippet).parent().should('have.attr', 'data-state', 'closed');
+        //this.elements.answerText(answerSnippet).should("not.exist");
     }
 
     typeFirstName(name: string) {
