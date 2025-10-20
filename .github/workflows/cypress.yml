@@ -26,7 +26,7 @@ jobs:
         run: npx cypress verify
         
       - name: Run tests
-        run: npx cypress run --browser chrome --config-file config/cypress.config.ts
+        run: npm run test:all
         
       - name: Run Cypress tests
         env:
