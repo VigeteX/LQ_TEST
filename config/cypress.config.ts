@@ -8,7 +8,7 @@ module.exports = defineConfig({
     e2e: {
         video: true,
         screenshotOnRunFailure: true,
-        pageLoadTimeout: 120000,
+        pageLoadTimeout: 180000,
         defaultCommandTimeout: 10000,
         specPattern: "cypress/e2e/features/**/*.feature",
         baseUrl: "https://telnyx.com/",

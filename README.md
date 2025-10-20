@@ -19,7 +19,6 @@ Before running the tests, make sure you have installed the following:
 ## Steps to Install
 1. Clone this repository:
 git clone https://github.com/VigeteX/LQ4.git
-cd Telnyx-Cypress-UI-Tests
 2. Open the project folder in VS Code.
 3. Install dependencies:
     npm install
@@ -28,10 +27,13 @@ cd Telnyx-Cypress-UI-Tests
 1. Run all tests:
     npm run test:all
 2. Run tests in Google Chrome:
-    npm run test
+    npx run test
 3. Run tests in Microsoft Edge:
-    npm run test:edge
-
+    npx run test:edge
+4. Open cypress in Google Chrome:
+    npx run open
+5. Open cypress in Microsoft Edge:
+    npx run open:edge
 
 configs
     cypress.config.edge.ts

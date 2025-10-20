@@ -26,9 +26,7 @@ jobs:
         run: npx cypress verify
         
       - name: Run tests
-        run: |
-          npx cypress run --config-file config/cypress.config.ts
-          npx cypress run --config-file config/cypress.config.edge.ts
+        run: npm run test:all
         
       - name: Upload Cypress screenshots and videos
         if: always()
