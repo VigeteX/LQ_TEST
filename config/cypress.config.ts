@@ -6,6 +6,8 @@ const esbuildPlugin = require("@badeball/cypress-cucumber-preprocessor/esbuild")
 
 module.exports = defineConfig({
     e2e: {
+        video: true,
+        screenshotOnRunFailure: true,
         pageLoadTimeout: 120000,
         defaultCommandTimeout: 10000,
         specPattern: "cypress/e2e/features/**/*.feature",
