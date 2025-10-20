@@ -27,9 +27,3 @@ jobs:
         
       - name: Run tests
         run: npx cypress run --browser chrome --config-file config/cypress.config.ts
-        
-        
-      - name: Run Cypress tests
-        env:
-          CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
-        run: npx cypress run --record --key $CYPRESS_RECORD_KEY
