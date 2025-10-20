@@ -4,9 +4,9 @@ export class CommonPage {
         questionButton: (text: string) => cy.contains('button', text),
         answerText: (text: string) => cy.contains(text),
 
-        firstNameInput: () => cy.get("#FirstName"),
-        lastNameInput: () => cy.get("#LastName"),
-        emailInput: () => cy.get("#Email"),
+        firstNameInput: () => cy.get('#FirstName', { timeout: 10000 }).should('be.visible'),
+        lastNameInput: () => cy.get("#LastName", { timeout: 10000 }).should('be.visible'),
+        emailInput: () => cy.get("#Email", { timeout: 10000 }).should('be.visible'),
 
         websiteInput: () => cy.get("#Website"),
         operatorSeatsDropdown: () => cy.get("#Form_Operator_Connect_Seats__c"),
