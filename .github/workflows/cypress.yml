@@ -26,5 +26,15 @@ jobs:
         run: npx cypress verify
         
       - name: Run tests
-        run: npx cypress run --config-file config/cypress.config.ts
+        run: |
+          npx cypress run --config-file config/cypress.config.ts
+          npx cypress run --config-file config/cypress.config.edge.ts
         
+      - name: Upload Cypress screenshots and videos
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: cypress-artifacts
+          path: |
+            cypress/videos
+            cypress/screenshots
