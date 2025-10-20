@@ -13,7 +13,7 @@
     "scripts": {
         "test": "npx cypress run --config-file config/cypress.config.ts",
         "test:edge": "npx cypress run --config-file config/cypress.config.edge.ts",
-        "test:all": "npx run test && npx run test:edge",
+        "test:all": "npm run test && npx run test:edge",
         "open": "npx cypress open --config-file config/cypress.config.ts",
         "open:edge": "npx cypress open --config-file config/cypress.config.edge.ts"
     }
