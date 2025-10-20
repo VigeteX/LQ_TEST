@@ -25,7 +25,8 @@ jobs:
       - name: Verify Cypress installation
         run: npx cypress verify
       - name: Run tests
-        run: npx cypress run
+        run: npm run test:all
+        
       - name: Run Cypress tests
         env:
           CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
