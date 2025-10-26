@@ -9,7 +9,7 @@ on:
 jobs:
   cypress-run:
     runs-on: ubuntu-latest
-    
+
     env:
       CYPRESS_BASE_URL: ${{ secrets.CYPRESS_BASE_URL }}
 

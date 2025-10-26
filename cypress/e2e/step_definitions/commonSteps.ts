@@ -3,10 +3,6 @@ import { mainPage } from "../pageobject/mainPage";
 import { commonPage } from "../pageobject/сommonPage";
 const data = require("../../fixtures/data.json");
 
-Given("I am on the telnyx page", () => {
-    mainPage.visit_telnyx();
-});
-
 When("I click on the green text button", () => {
     mainPage.clickGreenTextButton();
 });
