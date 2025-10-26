@@ -2,7 +2,6 @@
 export class CommonPage {
     elements = {
         questionButton: (text: string) => cy.contains('button', text),
-        //answerText: (text: string) => cy.contains(text, { timeout: 30000 }),
         answerText: (text: string) => cy.contains('div p', text, { timeout: 30000 }),
         helpText: (text: string) => cy.contains('button p', text, { timeout: 30000 }),
 
