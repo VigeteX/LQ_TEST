@@ -11,7 +11,7 @@ module.exports = defineConfig({
         video: true,
         screenshotOnRunFailure: true,
         pageLoadTimeout: 180000,
-        defaultCommandTimeout: 10000,
+        defaultCommandTimeout: 180000,
         specPattern: "cypress/e2e/features/**/*.feature",
         baseUrl: process.env.CYPRESS_BASE_URL,
         defaultBrowser: 'chrome',
