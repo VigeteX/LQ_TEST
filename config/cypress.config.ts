@@ -3,6 +3,7 @@ const { defineConfig } = require("cypress");
 const { addCucumberPreprocessorPlugin } = require("@badeball/cypress-cucumber-preprocessor");
 const createBundel = require("@bahmutov/cypress-esbuild-preprocessor");
 const esbuildPlugin = require("@badeball/cypress-cucumber-preprocessor/esbuild");
+require("dotenv").config({ path: require("path").resolve(__dirname, "../.env") });
 
 module.exports = defineConfig({
     e2e: {
@@ -11,7 +12,7 @@ module.exports = defineConfig({
         pageLoadTimeout: 180000,
         defaultCommandTimeout: 10000,
         specPattern: "cypress/e2e/features/**/*.feature",
-        baseUrl: "https://telnyx.com/",
+        baseUrl: process.env.CYPRESS_BASE_URL,
         defaultBrowser: 'chrome',
         includeShadowDom: true,
         viewportWidth: 1280,

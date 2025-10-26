@@ -1,7 +1,7 @@
 Feature: Voice panel functionality
 
     Scenario: Switching between "HD Voice AI" and "Text to speech" options to clear text field
-        Given I am on the telnyx page
+        Given I am on the "" page
         When I scroll down to the "True HD voice, end-to-end" panel
         Then The "HD VOICE AI" panel should be visible
         When I click on the "Text to speech" button

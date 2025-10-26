@@ -58,7 +58,10 @@ cypress
             sendMassageToAiAssistant.feature 
             switchingBetweenHDVoiceAIAndTextToSpeech.feature
         pageobject
+            mainPage.ts
+            сommonPage.ts
         step_definitions
+            commonSteps.ts
     fixtures
         data.json
     screensots

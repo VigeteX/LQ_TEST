@@ -1,7 +1,7 @@
 Feature: Interested in Operator Connect request 
     
     Scenario: Send "Interested in Operator Connect?" request with valid data
-        Given I am on the "https://telnyx.com/products/enterprise-integrations-ms-teams" page
+        Given I am on the "products/enterprise-integrations-ms-teams" page
         When I scroll down to the "Interested in learning more about Operator Connect?" panel
         When I enter firstName into first name input field
         Then First name value should be displayed
@@ -13,6 +13,6 @@ Feature: Interested in Operator Connect request
         Then Website value should be displayed
         When I select 0-50 in drop down menu How many Operator Connect seats will you need?
         When I click on the "Submit" button
-        Then "https://telnyx.com/thank-you" page should be opened
+        Then "thank-you" page should be opened
 
         

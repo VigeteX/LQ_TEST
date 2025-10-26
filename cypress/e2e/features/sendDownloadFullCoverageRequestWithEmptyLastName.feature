@@ -1,7 +1,7 @@
 Feature: Download full coverage
 
     Scenario: Send Download full coverage request with empty "Last name" field
-        Given I am on the "https://telnyx.com/global-coverage#our-global-coverage" page
+        Given I am on the "global-coverage#our-global-coverage" page
         When I enter firstName into first name input field
         Then First name value should be displayed
         When I enter nothing into last name input field

@@ -2,7 +2,7 @@
 export class CommonPage {
     elements = {
         questionButton: (text: string) => cy.contains('button', text),
-        answerText: (text: string) => cy.contains(text, { timeout: 10000 }),
+        answerText: (text: string) => cy.contains('p', text, { timeout: 10000 }),
 
         firstNameInput: () => cy.get('#FirstName', { timeout: 10000 }).should('be.visible'),
         lastNameInput: () => cy.get("#LastName", { timeout: 10000 }).should('be.visible'),
@@ -10,8 +10,8 @@ export class CommonPage {
 
         websiteInput: () => cy.get("#Website"),
         operatorSeatsDropdown: () => cy.get("#Form_Operator_Connect_Seats__c"),
-        requiredFieldMsg: () => cy.contains("This field is required"),
-        invalidEmailMsg: () => cy.contains("Must be valid email"),
+        requiredFieldMsg: () => cy.contains('div', "This field is required"),
+        invalidEmailMsg: () => cy.contains('div', "Must be valid email"),
     }
 
     clickQuestion(questionText: string) {

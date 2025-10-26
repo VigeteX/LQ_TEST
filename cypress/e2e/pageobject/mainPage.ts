@@ -12,9 +12,6 @@ export class MainPage {
         textArea: () => cy.get('textarea[id="text-to-speech-textarea"]')
     };
 
-    visit_telnyx() {
-        cy.visit("https://telnyx.com");
-    }
     visit(url: string) {
         cy.visit(url);
     }

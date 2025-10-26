@@ -1,7 +1,7 @@
 Feature: Interested in Operator Connect request
     
     Scenario: Send "Interested in Operator Connect?" request with empty "First name" field
-        Given I am on the "https://telnyx.com/products/enterprise-integrations-ms-teams" page
+        Given I am on the "products/enterprise-integrations-ms-teams" page
         When I scroll down to the "Interested in learning more about Operator Connect?" panel
         When I enter nothing into first name input field
         Then First name value should not be displayed
