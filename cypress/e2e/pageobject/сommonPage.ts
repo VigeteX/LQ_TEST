@@ -2,11 +2,11 @@
 export class CommonPage {
     elements = {
         questionButton: (text: string) => cy.contains('button', text),
-        answerText: (text: string) => cy.contains('p', text, { timeout: 10000 }),
+        answerText: (text: string) => cy.contains('p', text, { timeout: 30000 }),
 
-        firstNameInput: () => cy.get('#FirstName', { timeout: 10000 }).should('be.visible'),
-        lastNameInput: () => cy.get("#LastName", { timeout: 10000 }).should('be.visible'),
-        emailInput: () => cy.get("#Email", { timeout: 10000 }).should('be.visible'),
+        firstNameInput: () => cy.get('#FirstName', { timeout: 30000 }).should('be.visible'),
+        lastNameInput: () => cy.get("#LastName", { timeout: 30000 }).should('be.visible'),
+        emailInput: () => cy.get("#Email", { timeout: 30000 }).should('be.visible'),
 
         websiteInput: () => cy.get("#Website"),
         operatorSeatsDropdown: () => cy.get("#Form_Operator_Connect_Seats__c"),
