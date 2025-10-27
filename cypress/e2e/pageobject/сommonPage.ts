@@ -2,7 +2,8 @@
 export class CommonPage {
     elements = {
         questionButton: (text: string) => cy.contains('button', text),
-        answerText: (text: string) => cy.contains('div p', text, { timeout: 60000 }),
+        // answerText: (text: string) => cy.contains('div p', text, { timeout: 60000 }),
+        answerText: (text: string) => cy.get('div[data-state="open"]').find('p').contains(text, { timeout: 60000 }),
         helpText: (text: string) => cy.contains('button p', text, { timeout: 60000 }),
 
         firstNameInput: () => cy.get('#FirstName', { timeout: 60000 }).should('be.visible'),
@@ -24,7 +25,8 @@ export class CommonPage {
     }
 
     verifyHelpNotVisible(answerSnippet: string) {
-        this.elements.helpText(answerSnippet).should("not.exist");
+        // this.elements.helpText(answerSnippet).should("not.exist");
+        this.elements.answerText(answerSnippet).should('exist').and('not.be.visible');
     }
 
     verifyAnswerVisible(answerSnippet: string) {
@@ -32,7 +34,8 @@ export class CommonPage {
     }
 
     verifyAnswerNotVisible(answerSnippet: string) {
-        this.elements.answerText(answerSnippet).should("not.exist");
+        // this.elements.answerText(answerSnippet).should("not.exist");
+        this.elements.answerText(answerSnippet).should('exist').and('not.be.visible');
     }
 
     typeFirstName(name: string) {
