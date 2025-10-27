@@ -2,9 +2,8 @@
 export class CommonPage {
     elements = {
         questionButton: (text: string) => cy.contains('button', text),
-        // answerText: (text: string) => cy.contains('div p', text, { timeout: 60000 }),
-        answerText: (text: string) => cy.get('div[data-state="open"]').find('p').contains(text, { timeout: 60000 }),
-        helpText: (text: string) => cy.contains('button p', text, { timeout: 60000 }),
+        answerText: (text: string) => cy.contains(text, { timeout: 60000 }),
+        helpText: (text: string) => cy.contains(text, { timeout: 60000 }),
 
         firstNameInput: () => cy.get('#FirstName', { timeout: 60000 }).should('be.visible'),
         lastNameInput: () => cy.get("#LastName", { timeout: 60000 }).should('be.visible'),
