@@ -24,8 +24,7 @@ export class CommonPage {
     }
 
     verifyHelpNotVisible(answerSnippet: string) {
-        // this.elements.helpText(answerSnippet).should("not.exist");
-        this.elements.answerText(answerSnippet).should('exist').and('not.be.visible');
+        this.elements.helpText(answerSnippet).should("not.exist");
     }
 
     verifyAnswerVisible(answerSnippet: string) {
@@ -33,8 +32,7 @@ export class CommonPage {
     }
 
     verifyAnswerNotVisible(answerSnippet: string) {
-        // this.elements.answerText(answerSnippet).should("not.exist");
-        this.elements.answerText(answerSnippet).should('exist').and('not.be.visible');
+        this.elements.answerText(answerSnippet).should("not.exist");
     }
 
     typeFirstName(name: string) {
