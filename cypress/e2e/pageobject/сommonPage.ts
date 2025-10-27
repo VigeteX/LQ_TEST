@@ -3,7 +3,6 @@ export class CommonPage {
     elements = {
         questionButton: (text: string) => cy.contains('button', text),
         answerText: (text: string) => cy.contains(text, { timeout: 60000 }),
-        helpText: (text: string) => cy.contains(text, { timeout: 60000 }),
 
         firstNameInput: () => cy.get('#FirstName', { timeout: 60000 }).should('be.visible'),
         lastNameInput: () => cy.get("#LastName", { timeout: 60000 }).should('be.visible'),
@@ -17,14 +16,6 @@ export class CommonPage {
 
     clickQuestion(questionText: string) {
         this.elements.questionButton(questionText).click({ force: false });
-    }
-
-    verifyHelpVisible(answerSnippet: string) {
-        this.elements.helpText(answerSnippet).should("be.visible");
-    }
-
-    verifyHelpNotVisible(answerSnippet: string) {
-        this.elements.helpText(answerSnippet).should("not.exist");
     }
 
     verifyAnswerVisible(answerSnippet: string) {

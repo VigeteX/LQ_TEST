@@ -67,14 +67,6 @@ When('I click on the {string} question', (questionText: string) => {
     commonPage.clickQuestion(questionText);
 });
 
-Then('The help text {string} should be visible', (answerSnippet: string) => {
-    commonPage.verifyHelpVisible(answerSnippet);
-});
-
-Then('The help text {string} should not be visible', (answerSnippet: string) => {
-    commonPage.verifyHelpNotVisible(answerSnippet);
-});
-
 Then('The answer text {string} should be visible', (answerSnippet: string) => {
     commonPage.verifyAnswerVisible(answerSnippet);
 });
