@@ -22,7 +22,12 @@ jobs:
 
       - name: Install Newman
         run: npm install -g newman
-
+      
+      - name: Start local server
+        run: |
+          nohup npm run tern-on-api &
+          sleep 5
+      
       - name: Run Postman collection
         run: newman run store.collection.json
 
