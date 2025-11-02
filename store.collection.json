@@ -1,0 +1,418 @@
+{
+	"info": {
+		"_postman_id": "038addd4-7eba-450c-9abc-c543bc6e069b",
+		"name": "petstore",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "49706426",
+		"_collection_link": "https://vova-pel-vp-4498869.postman.co/workspace/Viget's-Workspace~bf53733f-f074-4b93-8761-bb153464c03b/collection/49706426-038addd4-7eba-450c-9abc-c543bc6e069b?action=share&source=collection_link&creator=49706426"
+	},
+	"item": [
+		{
+			"name": "pet",
+			"item": [
+				{
+					"name": "Negative tests (delete)",
+					"item": [
+						{
+							"name": "get",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"User not found after delete (404)\", function () {\r",
+											"    pm.expect(pm.response.code).to.eql(404);\r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {},
+										"requests": {}
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/users/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"users",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "delete",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"User deleted successfully (204 or 200)\", function () {\r",
+											"    pm.expect(pm.response.code).to.be.oneOf([200, 204]);\r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {},
+										"requests": {}
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/users/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"users",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Test pagination",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Pagination works\", () => {\r",
+									"  const data = pm.response.json();\r",
+									"  pm.expect(data.length).to.eql(2);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/users?page=1&pageSize=2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"users"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "pageSize",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"User not found after delete (404)\", function () {\r",
+									"    pm.expect(pm.response.code).to.eql(404);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/users/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"users",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Test sorting",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Users are sorted by firstName ASC\", () => {\r",
+									"    const data = pm.response.json();\r",
+									"    for (let i = 1; i < data.length; i++) {\r",
+									"        pm.expect(data[i-1].firstName <= data[i].firstName).to.be.true;\r",
+									"    }\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/users?sortOrder=ASC&sortKey=firstName",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"users"
+							],
+							"query": [
+								{
+									"key": "sortOrder",
+									"value": "ASC"
+								},
+								{
+									"key": "sortKey",
+									"value": "firstName"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Test status code for REST API (200,400 and so on).",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", () => {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/users",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Test response time",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Response time < 500ms\", () => {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(500);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/users",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Test response thanks to json schema validation.",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const expectedSchema = {\r",
+									"    type: \"array\",\r",
+									"    items: {\r",
+									"        type: \"object\",\r",
+									"        properties: {\r",
+									"            id: { type: \"number\" },\r",
+									"            firstName: { type: \"string\" },\r",
+									"            lastName: { type: \"string\" }\r",
+									"        },\r",
+									"        required: [\"id\", \"firstName\", \"lastName\"]\r",
+									"    }\r",
+									"};\r",
+									"\r",
+									"pm.test(\"Response matches JSON schema\", () => {\r",
+									"    pm.expect(tv4.validate(pm.response.json(), expectedSchema)).to.be.true;\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/users",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"User deleted successfully (204 or 200)\", function () {\r",
+									"    pm.expect(pm.response.code).to.be.oneOf([200, 204]);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/users/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"users",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Try to follow AAA approach (arrange, act, assert).",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const expectedMinUsers = 1;\r",
+									"\r",
+									"const users = pm.response.json();\r",
+									"\r",
+									"pm.test(\"At least one user returned\", () => {\r",
+									"    pm.expect(users.length).to.be.at.least(expectedMinUsers);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/users",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
