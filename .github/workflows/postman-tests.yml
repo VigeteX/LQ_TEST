@@ -20,14 +20,14 @@ jobs:
           node-version: 22
           cache: 'npm'
 
-      - name: Install Newman
-        run: npm install -g newman
-      
+      - name: Install Newman and reporters
+        run: npm install -g newman newman-reporter-htmlextra
+
       - name: Start local server
         run: |
           nohup npm run tern-on-api &
           sleep 5
-      
+
       - name: Run Postman collection
         run: |
           newman run store.collection.json \
