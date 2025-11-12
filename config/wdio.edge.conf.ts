@@ -5,7 +5,7 @@ export const config = {
     capabilities: [{
         browserName: 'MicrosoftEdge',
         'ms:edgeOptions': {
-            args: ['--headless', '--disable-gpu','--window-size=1920,1080', '--log-level=3','--silent']
+            args: ['--headless','--window-size=1920,1080']
         }
     }],
 };

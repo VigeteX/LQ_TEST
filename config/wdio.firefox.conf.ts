@@ -5,7 +5,7 @@ export const config = {
     capabilities: [{
         browserName: 'firefox',
         'moz:firefoxOptions': {
-            args: ['-headless', '--disable-gpu','--width=1920', '--height=1080']
+            args: ['-headless','--width=1920', '--height=1080']
         }
     }],
 };
