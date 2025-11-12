@@ -11,7 +11,10 @@ RUN apt-get update && apt-get install -y \
     xdg-utils \
     wget \
     unzip \
- && rm -rf /var/lib/apt/lists/*
+    libasound2t64 \
+    libgbm1 \
+    libxshmfence1 \
+    && rm -rf /var/lib/apt/lists/*
 
 RUN wget -q https://github.com/mozilla/geckodriver/releases/download/v0.34.0/geckodriver-v0.34.0-linux64.tar.gz \
     && tar -xzf geckodriver-v0.34.0-linux64.tar.gz \
