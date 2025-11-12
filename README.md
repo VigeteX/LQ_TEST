@@ -119,7 +119,6 @@ Dockerfile
 package-lock.json
 package.json
 README.md
-testdata.json
 tsconfig.json
 ```
 
