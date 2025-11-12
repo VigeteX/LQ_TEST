@@ -29,4 +29,4 @@ ENV CI=true
 ENV CHROME_BIN=/usr/bin/chromium
 ENV FIREFOX_BIN=/usr/bin/firefox
 
-CMD ["npm", "test"]
+CMD ["npm", "run", "test:all"]

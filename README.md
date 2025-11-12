@@ -5,7 +5,7 @@
 This repository contains automated UI tests for various pages of the Telnyx website (https://telnyx.com/).  
 Tests are written using **WebdriverIO** and **TypeScript**, following the **Page Object Model (POM)** structure.  
 Each test corresponds to a manual test case defined in the specification document.  
-Tests run **headless** inside Docker, supporting **Chromium** and **Firefox** browsers.  
+Tests run **headless** inside Docker, supporting **Chromium**, **Firefox** and **Edge** browsers.  
 
 ---
 
@@ -55,7 +55,7 @@ docker run --rm -v "${PWD}/allure-results:/app/allure-results" wdio-tests
 
 - Run all tests locally in default browser (headless by default):  
 ```bash
-npm run test
+npm run test:all
 ```
 
 - Run tests in Chrome:  
@@ -68,6 +68,10 @@ npm run test:chrome
 npm run test:firefox
 ```
 
+- Run tests in Edge:  
+```bash
+npm run test:edge
+```
 ---
 
 ## Project Structure
