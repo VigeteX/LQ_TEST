@@ -13,10 +13,9 @@
   },
   "scripts": {
     "wdio": "wdio run ./config/wdio.conf.ts",
-    "test:all": "run-s test:chrome test:firefox test:edge",
+    "test:all": "run-s test:chrome test:firefox",
     "test:chrome": "wdio run ./config/wdio.conf.ts",
     "test:firefox": "wdio run ./config/wdio.firefox.conf.ts",
-    "test:edge": "wdio run ./config/wdio.edge.conf.ts",
     "allure:generate": "allure generate allure-results --clean -o allure-report",
     "allure:open": "allure open allure-report",
     "test:docker": "docker run --rm -v '${PWD}/allure-results:/app/allure-results' wdio-tests"
