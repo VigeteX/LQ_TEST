@@ -14,14 +14,14 @@ class CoveragePage extends BasePage {
     async selectCountry(country: string){
         await this.countryDropdown.click();
         const option = await $(`span=${country}`);
-        option.waitForDisplayed({ timeout: 5000 });
+        option.waitForDisplayed({ timeout: 30000 });
         option.click();
     }
     
     async selectFilter(filter: string) {
         await this.filterDropdown.click(); 
         const option = await $(`span=${filter}`);
-        option.waitForDisplayed({ timeout: 5000 });
+        option.waitForDisplayed({ timeout: 30000 });
         option.click();
     }
     

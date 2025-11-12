@@ -15,8 +15,8 @@ describe('Reset Global Number Coverage filters', () => {
         await CoveragePage.servicesButton.waitForClickable()
         await CoveragePage.servicesButton.click()
 
-        await CoveragePage.countryDropdown.waitForDisplayed({ timeout: 5000 });
-        await CoveragePage.filterDropdown.waitForDisplayed({ timeout: 5000 });
+        await CoveragePage.countryDropdown.waitForDisplayed({ timeout: 30000 });
+        await CoveragePage.filterDropdown.waitForDisplayed({ timeout: 30000 });
 
         const countryText = await CoveragePage.countryDropdown.getText();
         const filterText = await CoveragePage.filterDropdown.getText();

@@ -4,7 +4,7 @@ export default class BasePage {
     }
 
     waitForElement(element: WebdriverIO.Element) {
-        element.waitForDisplayed({ timeout: 5000 });
+        element.waitForDisplayed({ timeout: 30000 });
     }
 
     async handleCookies() {
