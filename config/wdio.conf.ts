@@ -14,7 +14,15 @@ export const config: WebdriverIO.Config = {
     capabilities: [{
         browserName: 'chrome',
         'goog:chromeOptions': {
-            args: ['--headless','--window-size=1920,1080']
+            args: [
+                '--headless=new',
+                '--no-sandbox',
+                '--disable-gpu',
+                '--disable-dev-shm-usage',
+                '--disable-software-rasterizer',
+                '--disable-extensions',
+                '--window-size=1920,1080'
+            ]
         }
     }],
     logLevel: 'error',
