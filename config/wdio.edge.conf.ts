@@ -5,6 +5,7 @@ export const config = {
     capabilities: [{
         browserName: 'MicrosoftEdge',
         'ms:edgeOptions': {
+            binary: process.env.EDGE_BIN,
             args: ['--headless=new','--window-size=1920,1080']
         }
     }],
