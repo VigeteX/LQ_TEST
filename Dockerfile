@@ -2,7 +2,7 @@ FROM node:18-bullseye
 
 RUN apt-get update && apt-get install -y \
     chromium \
-    libasound2t64 \
+    chromium-driver \
     libatk-bridge2.0-0 \
     libnss3 \
     libxss1 \
@@ -10,6 +10,7 @@ RUN apt-get update && apt-get install -y \
     libxshmfence1 \
     fonts-liberation \
     xdg-utils \
+    libasound2 \
     && rm -rf /var/lib/apt/lists/*
 
 RUN wget -q https://github.com/mozilla/geckodriver/releases/download/v0.34.0/geckodriver-v0.34.0-linux64.tar.gz \
