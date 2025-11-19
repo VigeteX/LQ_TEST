@@ -1,0 +1,11 @@
+{
+  "valid": {
+    "email": "demo@wdio.io",
+    "password": "wdio1234"
+  },
+  "invalid": {
+    "email": "demo",
+    "password": "wo14"
+  },
+  "text": "test"
+}
