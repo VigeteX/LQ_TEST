@@ -39,7 +39,11 @@ exports.config = {
         "appium:deviceName": "Google Pixel 3",
         "platformName": "Android",
         "appium:autoAcceptAlerts": "true",
-        "appium:browserstack.appium_version": "1.22.0"
+        "appium:browserstack.appium_version": "1.22.0",
+        "bstack:options": {
+            userName: process.env.BROWSERSTACK_USER,
+            accessKey: process.env.BROWSERSTACK_KEY
+        }
     }],
 
     logLevel: 'error',
