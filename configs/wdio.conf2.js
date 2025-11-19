@@ -56,7 +56,8 @@ exports.config = {
     waitforTimeout: 10000,
     connectionRetryTimeout: 120000,
     connectionRetryCount: 3,
-    services: ['appium'],
+    // services: ['appium'],
+    services: ['browserstack'],
     framework: 'mocha',
     reporters: ['spec'],
     mochaOpts: {
