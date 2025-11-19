@@ -21,7 +21,12 @@ jobs:
 
     - name: Install dependencies
       run: npm ci
-
+    
+    - name: Check env
+      run: |
+        echo $BROWSERSTACK_USER
+        echo $BROWSERSTACK_KEY
+      
     - name: Run WDIO tests on BrowserStack
       env:
         BROWSERSTACK_USER: ${{ secrets.BROWSERSTACK_USER }}
