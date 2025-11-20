@@ -12,25 +12,28 @@ exports.config = {
     
     capabilities: [{
         "platformName": "Android",
-        "appium:platformVersion": "12.0",
-        "appium:avd": "Pixel_6_Pro_SSD",  
+
         "appium:deviceName": "Google Pixel 6 Pro", 
+        "appium:platformVersion": "13.0",
         "appium:automationName": "UiAutomator2",
         "appium:app": "bs://68e5f65b6504b4ded77005d5cc7c12a59a090919",
+        "appium:noReset": true,
+
+        // "appium:avd": "Pixel_6_Pro_SSD",
         //"appium:app": "E:/LQ/LQ tc/8/browserstack_test-main/Android-NativeDemoApp-0.4.0.apk",
         //"appium:app": "bs://<APP_UPLOADED_ID>",
-        "appium:noReset": true,
         //"appium:noReset": false,
         //"appium:fullReset": true,
-        "appium:appPackage": "com.wdiodemoapp",
-        "appium:appActivity": "com.wdiodemoapp.MainActivity",
-        "appium:browserstack.appium_version": "1.22.0",
+        //"appium:appPackage": "com.wdiodemoapp",
+        //"appium:appActivity": "com.wdiodemoapp.MainActivity",
+        //"appium:browserstack.appium_version": "1.22.0",
         "bstack:options": {
             userName: process.env.BROWSERSTACK_USER,
             accessKey: process.env.BROWSERSTACK_KEY,
             projectName: "MyProject",               
             buildName: "Build 1",                  
-            sessionName: "Login Test" 
+            sessionName: "Login Test",
+            appiumVersion: "1.22.0"
         }
     }],
 
