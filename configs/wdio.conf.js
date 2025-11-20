@@ -32,6 +32,7 @@ exports.config = {
             userName: process.env.BROWSERSTACK_USER,
             accessKey: process.env.BROWSERSTACK_KEY,
 
+            platformName: "Android",
             deviceName: "Google Pixel 6 Pro",
             osVersion: "15.0",
 
