@@ -12,8 +12,10 @@ exports.config = {
     capabilities: [{
         "platformName": "Android",
 
-        "appium:deviceName": "Google Pixel 6",
-        "appium:platformVersion": "12.0",
+        // "appium:deviceName": "Google Pixel 6",
+        // "appium:platformVersion": "12.0",
+        "appium:deviceName": "Google Pixel 6 Pro",
+        "appium:platformVersion": "15.0", 
         "appium:automationName": "UiAutomator2",
         "appium:app": "bs://68e5f65b6504b4ded77005d5cc7c12a59a090919",
         "appium:noReset": true,
