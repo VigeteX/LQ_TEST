@@ -14,8 +14,8 @@ exports.config = {
 
         // "appium:deviceName": "Google Pixel 6",
         // "appium:platformVersion": "12.0",
-        "appium:deviceName": "Google Pixel 6 Pro",
-        "appium:platformVersion": "15.0", 
+        // "appium:deviceName": "Google Pixel 6 Pro",
+        // "appium:platformVersion": "15.0", 
         "appium:automationName": "UiAutomator2",
         "appium:app": "bs://68e5f65b6504b4ded77005d5cc7c12a59a090919",
         "appium:noReset": true,
@@ -31,6 +31,10 @@ exports.config = {
         "bstack:options": {
             userName: process.env.BROWSERSTACK_USER,
             accessKey: process.env.BROWSERSTACK_KEY,
+
+            deviceName: "Google Pixel 6 Pro",
+            osVersion: "15.0",
+
             projectName: "MyProject",               
             buildName: "Build 1",                   
             sessionName: "Login Test",
@@ -54,14 +58,16 @@ exports.config = {
     //     }
     // }],
 
+    services: ['browserstack'],
+
     logLevel: 'error',
-    bail: 0,
+    // bail: 0,
     waitforTimeout: 10000,
     connectionRetryTimeout: 120000,
     connectionRetryCount: 3,
     //services: ['appium'],
 
-    services: ['browserstack'],
+    
     framework: 'mocha',
     reporters: ['spec'],
     mochaOpts: {
