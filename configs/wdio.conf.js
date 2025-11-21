@@ -5,10 +5,10 @@ exports.config = {
     accessKey: "JcttkD6YqvbwYc9xpCxP",
     protocol: 'https',
     hostname: 'hub.browserstack.com',
-    //port: 443,
+    port: 443,
     path: '/wd/hub',
 
-    port: 4723,
+    //port: 4723,
     specs: [
         '../test/specs/**/*.js'
     ],
