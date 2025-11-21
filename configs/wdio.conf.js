@@ -1,6 +1,12 @@
 
 exports.config = {
     runner: 'local',
+
+    protocol: 'https',
+    hostname: 'hub.browserstack.com',
+    port: 443,
+    path: '/wd/hub',
+    
     // port: 4723,
     specs: [
         '../test/specs/**/*.js'
