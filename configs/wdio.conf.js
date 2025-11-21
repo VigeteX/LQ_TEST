@@ -6,7 +6,7 @@ exports.config = {
     hostname: 'hub.browserstack.com',
     port: 443,
     path: '/wd/hub',
-    
+
     // port: 4723,
     specs: [
         '../test/specs/**/*.js'
@@ -28,8 +28,10 @@ exports.config = {
         "appium:appPackage": "com.wdiodemoapp",
         "appium:appActivity": "com.wdiodemoapp.MainActivity",
         "bstack:options": {
-            userName: process.env.BROWSERSTACK_USERNAME,
-            accessKey: process.env.BROWSERSTACK_ACCESS_KEY,
+            // userName: process.env.BROWSERSTACK_USERNAME,
+            // accessKey: process.env.BROWSERSTACK_ACCESS_KEY,
+            userName: "viget_p5C1Ef",
+            accessKey: "JcttkD6YqvbwYc9xpCxP",
             projectName: "MyProject",               
             buildName: "Build 1",                   
             sessionName: "Login Test"    
