@@ -25,7 +25,7 @@ exports.config = {
         "appium:deviceName": "Google Pixel 6",
         "appium:automationName": "UiAutomator2",
         // "appium:app": "E:/LQ/LQ tc/8/browserstack_test-main/Android-NativeDemoApp-0.4.0.apk",
-        "appium:app": "bs://<APP_UPLOADED_ID>",
+        "appium:app": "bs://68e5f65b6504b4ded77005d5cc7c12a59a090919",
         "appium:noReset": true,
         //"appium:fullReset": true,
         "appium:appPackage": "com.wdiodemoapp",
