@@ -8,7 +8,7 @@ exports.config = {
     //port: 443,
     path: '/wd/hub',
 
-     \port: 4723,
+    port: 4723,
     specs: [
         '../test/specs/**/*.js'
     ],
