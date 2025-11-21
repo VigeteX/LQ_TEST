@@ -1,7 +1,8 @@
 
 exports.config = {
     runner: 'local',
-
+    userName: "viget_p5C1Ef",
+    accessKey: "JcttkD6YqvbwYc9xpCxP",
     protocol: 'https',
     hostname: 'hub.browserstack.com',
     port: 443,
@@ -30,8 +31,7 @@ exports.config = {
         "bstack:options": {
             // userName: process.env.BROWSERSTACK_USERNAME,
             // accessKey: process.env.BROWSERSTACK_ACCESS_KEY,
-            userName: "viget_p5C1Ef",
-            accessKey: "JcttkD6YqvbwYc9xpCxP",
+            
             projectName: "MyProject",               
             buildName: "Build 1",                   
             sessionName: "Login Test"    
