@@ -1,6 +1,8 @@
 
 exports.config = {
     runner: 'local',
+    user: 'viget_p5C1Ef',       // BrowserStack username
+    key: 'JcttkD6YqvbwYc9xpCxP', // BrowserStack access key
     userName: "viget_p5C1Ef",
     accessKey: "JcttkD6YqvbwYc9xpCxP",
     protocol: 'https',
