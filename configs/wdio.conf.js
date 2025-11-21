@@ -30,14 +30,14 @@ exports.config = {
         //"appium:fullReset": true,
         "appium:appPackage": "com.wdiodemoapp",
         "appium:appActivity": "com.wdiodemoapp.MainActivity",
-        "bstack:options": {
-            // userName: process.env.BROWSERSTACK_USERNAME,
-            // accessKey: process.env.BROWSERSTACK_ACCESS_KEY,
+        // "bstack:options": {
+        //     // userName: process.env.BROWSERSTACK_USERNAME,
+        //     // accessKey: process.env.BROWSERSTACK_ACCESS_KEY,
             
-            projectName: "MyProject",               
-            buildName: "Build 1",                   
-            sessionName: "Login Test"    
-        }
+        //     projectName: "MyProject",               
+        //     buildName: "Build 1",                   
+        //     sessionName: "Login Test"    
+        // }
     }],
     logLevel: 'error',
     bail: 0,
