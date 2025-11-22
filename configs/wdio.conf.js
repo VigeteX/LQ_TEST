@@ -1,13 +1,12 @@
 
 exports.config = {
     runner: 'local',
-    // user: 'viget_p5C1Ef',       // BrowserStack username
-    // key: 'JcttkD6YqvbwYc9xpCxP', // BrowserStack access key
+    
     user: process.env.BROWSERSTACK_USERNAME,
     key: process.env.BROWSERSTACK_ACCESS_KEY,
 
-    //userName: "viget_p5C1Ef",
-    //accessKey: "JcttkD6YqvbwYc9xpCxP",
+    //userName: process.env.BROWSERSTACK_USERNAME,
+    //accessKey: process.env.BROWSERSTACK_ACCESS_KEY,
     protocol: 'https',
     hostname: 'hub.browserstack.com',
     port: 443,
@@ -54,7 +53,7 @@ exports.config = {
     connectionRetryCount: 3,
 
     services: ['appium','browserstack'],
-    
+
     framework: 'mocha',
     reporters: ['spec'],
     mochaOpts: {
