@@ -1,7 +1,7 @@
 const FormsPage = require('../pageobjects/forms.page.js');
 
-describe('Login test', () => {
-    it('should login successfully', async () => {
+describe('Form test', () => {
+    it('Message is display', async () => {
         await FormsPage.menuForms.click();
         
         await FormsPage.activeButton.click();

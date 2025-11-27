@@ -2,7 +2,7 @@ const LoginPage = require('../pageobjects/login.page.js');
 const testData = require('../../testData.json');
 
 describe('Login test', () => {
-    it('should login successfully', async () => {
+    it('Invalid password message is display', async () => {
         await LoginPage.menuLogin.click();
         
         await LoginPage.inputEmail.setValue(testData.valid.email);
