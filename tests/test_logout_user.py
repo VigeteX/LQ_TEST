@@ -18,16 +18,19 @@ def test_signup_flow(page, base_url):
     
     with allure.step("Click Signup / Login"):
         page.click(home.signup_login_button)
+        page.locator(home.signup_title).wait_for(state="visible", timeout=5000)
         assert page.locator(login.signup_title).is_visible()
         allure.attach(page.screenshot(), "signup_title", allure.attachment_type.PNG)
 
     with allure.step("Login"):
         login.fill_login_inputs(TEST_EMAIL, TEST_PASSWORD)
         page.click(login.login_button)
+        page.locator(home.logged_in_as_title).wait_for(state="visible", timeout=5000)
         assert page.locator(home.logged_in_as_title).is_visible()
         allure.attach(page.screenshot(), "old_user", allure.attachment_type.PNG)
     
     with allure.step("Logout"):
         page.click(home.logout_button)
+        page.locator(login.login_title).wait_for(state="visible", timeout=5000)
         assert page.locator(login.login_title).is_visible()
         allure.attach(page.screenshot(), "old_user", allure.attachment_type.PNG)
