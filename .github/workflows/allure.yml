@@ -23,14 +23,13 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
-          pip install allure-pytest
+
+      - name: Install Playwright browsers
+        run: playwright install --with-deps
 
       - name: Install Allure CLI
-        run: |
-          sudo apt-add-repository ppa:qameta/allure -y
-          sudo apt-get update
-          sudo apt-get install allure -y
-
+        run: npm install -g allure-commandline --save-dev
+        
       - name: Run tests
         env:
           TEST_EMAIL: ${{ secrets.TEST_EMAIL }}
