@@ -5,6 +5,7 @@ load_dotenv()
 
 TEST_EMAIL = os.getenv("TEST_EMAIL")
 TEST_PASSWORD = os.getenv("TEST_PASSWORD")
+TEST_EMAIL_PREFIX = os.getenv("TEST_EMAIL_PREFIX")
 
 import pytest
 from playwright.sync_api import sync_playwright

@@ -4,6 +4,7 @@ import allure
 from pages.home_page import HomePage
 from pages.login_page import LoginPage
 from pages.signup_page import SignupPage
+from conftest import TEST_EMAIL_PREFIX
 from faker import Faker
 faker = Faker()
 
@@ -17,7 +18,7 @@ def test_signup_flow(page, base_url):
         page.set_viewport_size({'width': 1920, 'height': 1080})
         page.goto(base_url)
     
-    email = faker.email()
+    email = TEST_EMAIL_PREFIX + faker.email()
     password = faker.password()
     with allure.step("Precondition: Create account"):
         page.click(home.signup_login_button)

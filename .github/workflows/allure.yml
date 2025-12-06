@@ -37,6 +37,7 @@ jobs:
           TEST_EMAIL: ${{ secrets.TEST_EMAIL }}
           TEST_PASSWORD: ${{ secrets.TEST_PASSWORD }}
           BASE_URL: ${{ secrets.BASE_URL }}
+          TEST_EMAIL_PREFIX: ${{ secrets.TEST_EMAIL_PREFIX }}
         run: |
           pytest -n auto --alluredir=allure-results --browser_name=${{ matrix.browser }}
 

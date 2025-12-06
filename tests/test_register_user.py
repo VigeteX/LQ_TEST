@@ -4,6 +4,7 @@ import allure
 from pages.home_page import HomePage
 from pages.login_page import LoginPage
 from pages.signup_page import SignupPage
+from conftest import TEST_EMAIL_PREFIX
 from faker import Faker
 faker = Faker()
 
@@ -25,12 +26,13 @@ def test_signup_flow(page, base_url):
         allure.attach(page.screenshot(), "signup_title", allure.attachment_type.PNG)
 
     with allure.step("Enter name and email"):
+        fake_email = TEST_EMAIL_PREFIX + faker.email()
         login.fill_signup_inputs(
             faker.first_name(), 
-            faker.email()
+            fake_email
         )
-        page.locator(login.signup_button).click(force=True)
-        page.locator(signup.enter_account_information_title).wait_for(state="visible", timeout=10000)
+        page.click(login.signup_button)
+        page.locator(signup.enter_account_information_title).wait_for(state="visible", timeout=5000)
         assert page.locator(signup.enter_account_information_title).is_visible()
         allure.attach(page.screenshot(), "new_user", allure.attachment_type.PNG)
 
