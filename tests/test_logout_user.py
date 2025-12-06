@@ -18,7 +18,7 @@ def test_signup_flow(page, base_url):
     
     with allure.step("Click Signup / Login"):
         page.click(home.signup_login_button)
-        page.locator(home.signup_title).wait_for(state="visible", timeout=5000)
+        page.locator(login.signup_title).wait_for(state="visible", timeout=5000)
         assert page.locator(login.signup_title).is_visible()
         allure.attach(page.screenshot(), "signup_title", allure.attachment_type.PNG)
 
