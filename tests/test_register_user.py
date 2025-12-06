@@ -29,7 +29,7 @@ def test_signup_flow(page, base_url):
             faker.first_name(), 
             faker.email()
         )
-        page.locator(login.signup_button).click(force=True)
+        page.click(login.signup_button)
         page.locator(signup.enter_account_information_title).wait_for(state="visible", timeout=10000)
         assert page.locator(signup.enter_account_information_title).is_visible()
         allure.attach(page.screenshot(), "new_user", allure.attachment_type.PNG)
