@@ -50,6 +50,17 @@ def test_signup_flow(page, base_url):
         assert page.url == "https://automationexercise.com/"
         allure.attach(page.screenshot(), "home_page", allure.attachment_type.PNG)
 
+# python -m pytest tests --alluredir=allure-results
+# python -m pytest tests/test_register_user.py --alluredir=allure-results
+# allure generate allure-results --clean -o allure-report 
+# allure open allure-report
+
+# pytest -n auto --browser=chromium --alluredir=allure-results
+# pytest -n auto --browser=firefox --alluredir=allure-results
+# allure generate allure-results --clean -o allure-report
+# allure open allure-report
+
+
 # assert "display: block" in page.locator(contact.success_title).get_attribute("style")
 
 # pytest --browser_name=chromium --browser_name=firefox -n auto --alluredir=allure-results

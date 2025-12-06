@@ -31,7 +31,3 @@ def test_signup_flow(page, base_url):
         for i in range(products_list.count()):
             assert "blue top" in products_list.nth(i).inner_text().lower()
         allure.attach(page.screenshot(), "search result", allure.attachment_type.PNG)
-
-# assert assert page.locator(products.first_item_name).text_content() == "Blue Top"
-# python -m pytest tests/test_search_product.py --alluredir=allure-results
-

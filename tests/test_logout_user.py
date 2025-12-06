@@ -4,8 +4,6 @@ import allure
 from pages.home_page import HomePage
 from pages.login_page import LoginPage
 from conftest import TEST_EMAIL, TEST_PASSWORD
-from faker import Faker
-faker = Faker()
 
 @allure.title("register_user")
 def test_signup_flow(page, base_url):
@@ -33,5 +31,3 @@ def test_signup_flow(page, base_url):
         page.click(home.logout_button)
         assert page.locator(login.login_title).is_visible()
         allure.attach(page.screenshot(), "old_user", allure.attachment_type.PNG)
-
-# python -m pytest tests/test_logout_user.py --alluredir=allure-results

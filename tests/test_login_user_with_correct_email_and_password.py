@@ -31,7 +31,7 @@ def test_signup_flow(page, base_url):
             password,
             str(birthdate.day),
             str(birthdate.month),
-            str(birthdate.year),
+            str(faker.random_int(min=1900, max=2021)),
         )
         signup.fill_address_info(
             faker.first_name(),
@@ -71,4 +71,3 @@ def test_signup_flow(page, base_url):
         allure.attach(page.screenshot(), "account_deleted", allure.attachment_type.PNG)
         page.click(home.continue_button)
 
-# python -m pytest tests/test_login_user_with_correct_email_and_password.py --alluredir=allure-results

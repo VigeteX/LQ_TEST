@@ -28,7 +28,7 @@ def browser_type(pytestconfig):
 @pytest.fixture()
 def page(browser_type):
     with sync_playwright() as p:
-        browser = p[browser_type].launch(headless=False)
+        browser = p[browser_type].launch(headless=True)
         context = browser.new_context()
         page = context.new_page()
         yield page

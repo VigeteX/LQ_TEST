@@ -21,5 +21,4 @@ def test_signup_flow(page, base_url):
         assert page.locator(home.success_subscribe_title).is_visible()
         allure.attach(page.screenshot(), "success_subscribe", allure.attachment_type.PNG)
 
-# python -m pytest tests/test_verify_subscription_in_home_page.py --alluredir=allure-results
         

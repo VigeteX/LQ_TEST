@@ -29,5 +29,3 @@ def test_signup_flow(page, base_url):
         page.click(login.signup_button)
         assert page.locator(login.signup_error_message).is_visible()
         allure.attach(page.screenshot(), "new_user", allure.attachment_type.PNG)
-
-# python -m pytest tests/test_register_user_with_existing_email.py --alluredir=allure-results

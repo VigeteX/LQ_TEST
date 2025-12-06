@@ -39,7 +39,7 @@ def test_signup_flow(page, base_url):
             faker.password(),
             str(birthdate.day),
             str(birthdate.month),
-            str(birthdate.year),
+            str(faker.random_int(min=1900, max=2021)),
         )
         page.click(signup.newsletter)
         page.click(signup.optin)
@@ -69,12 +69,3 @@ def test_signup_flow(page, base_url):
         allure.attach(page.screenshot(), "account_deleted", allure.attachment_type.PNG)
         page.click(home.continue_button)
 
-# python -m pytest tests --alluredir=allure-results
-# python -m pytest tests/test_register_user.py --alluredir=allure-results
-# allure generate allure-results --clean -o allure-report 
-# allure open allure-report
-
-# pytest -n auto --browser=chromium --alluredir=allure-results
-# pytest -n auto --browser=firefox --alluredir=allure-results
-# allure generate allure-results --clean -o allure-report
-# allure open allure-report

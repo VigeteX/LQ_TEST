@@ -29,5 +29,3 @@ def test_signup_flow(page, base_url):
         page.click(login.login_button)
         assert page.locator(login.login_error_message).is_visible()
         allure.attach(page.screenshot(), "old_user", allure.attachment_type.PNG)
-
-# python -m pytest tests/test_login_user_with_incorrect_email_and_password.py --alluredir=allure-results

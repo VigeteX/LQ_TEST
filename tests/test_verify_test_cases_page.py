@@ -19,6 +19,4 @@ def test_signup_flow(page, base_url):
         f"{base_url}/test_cases"
         assert page.url == f"{base_url}/test_cases"
         allure.attach(page.screenshot(), "test cases page", allure.attachment_type.PNG)
-
-# python -m pytest tests/test_verify_test_cases_page.py --alluredir=allure-results
         

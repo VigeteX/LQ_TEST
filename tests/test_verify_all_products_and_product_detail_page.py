@@ -33,6 +33,3 @@ def test_signup_flow(page, base_url):
         assert page.locator(products.condition).is_visible()
         assert page.locator(products.brand).is_visible()
         allure.attach(page.screenshot(), "all visible", allure.attachment_type.PNG)
-    
-
-# python -m pytest tests/test_verify_all_products_and_product_detail_page.py --alluredir=allure-results
