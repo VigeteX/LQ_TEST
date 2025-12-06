@@ -27,9 +27,9 @@ def test_signup_flow(page, base_url):
         assert page.locator(contact.name_input).input_value() != ""
         page.fill(contact.email_input, faker.email())
         assert page.locator(contact.email_input).input_value() != ""
-        page.fill(contact.subject_input, "asdasd")
+        page.fill(contact.subject_input, "text")
         assert page.locator(contact.subject_input).input_value() != ""
-        page.fill(contact.message_textarea, "asdasdasdasd")
+        page.fill(contact.message_textarea, "message")
         assert page.locator(contact.message_textarea).input_value() != ""
         page.locator(contact.upload_file_input).set_input_files("data/test.png")
         files = page.locator(contact.upload_file_input).evaluate("input => input.files.length")
