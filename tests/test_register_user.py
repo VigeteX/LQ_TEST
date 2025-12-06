@@ -29,7 +29,7 @@ def test_signup_flow(page, base_url):
             faker.first_name(), 
             faker.email()
         )
-        page.click(login.signup_button)
+        page.locator(login.signup_button).click(force=True)
         page.locator(signup.enter_account_information_title).wait_for(state="visible", timeout=10000)
         assert page.locator(signup.enter_account_information_title).is_visible()
         allure.attach(page.screenshot(), "new_user", allure.attachment_type.PNG)
@@ -60,12 +60,14 @@ def test_signup_flow(page, base_url):
 
     with allure.step("Verify account created"):
         page.click(signup.create_account_button)
+        page.locator(home.account_created_title).wait_for(state="visible", timeout=5000)
         assert page.locator(home.account_created_title).is_visible()
         allure.attach(page.screenshot(), "account_created", allure.attachment_type.PNG)
         page.click(home.continue_button)
 
     with allure.step("Verify account deleted"):
         page.click(home.delete_account_button)
+        page.locator(home.account_deleted_title).wait_for(state="visible", timeout=5000)
         assert page.locator(home.account_deleted_title).is_visible()
         allure.attach(page.screenshot(), "account_deleted", allure.attachment_type.PNG)
         page.click(home.continue_button)

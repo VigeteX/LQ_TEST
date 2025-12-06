@@ -40,6 +40,7 @@ def test_signup_flow(page, base_url):
         page.locator(contact.submit_button).click(force=True)
 
         page.wait_for_timeout(10000)
+        page.locator(contact.success_title).wait_for(state="visible", timeout=10000)
         assert page.locator(contact.success_title).is_visible()
 
         allure.attach(page.screenshot(), "send", allure.attachment_type.PNG)
