@@ -5,7 +5,7 @@ from pages.home_page import HomePage
 from faker import Faker
 faker = Faker()
 
-@allure.title("register_user")
+@allure.title("Verify Subscription In Home Page")
 def test_signup_flow(page, base_url):
     home = HomePage(page)
 

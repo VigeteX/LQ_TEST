@@ -6,7 +6,7 @@ from pages.contact_page import ContactUsPage
 from faker import Faker
 faker = Faker()
 
-@allure.title("register_user")
+@allure.title("Contact us form")
 def test_signup_flow(page, base_url):
     home = HomePage(page)
     contact = ContactUsPage(page)
