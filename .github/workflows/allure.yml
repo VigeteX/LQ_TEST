@@ -50,3 +50,27 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./allure-report
+        
+      - name: Send Slack notification
+        if: always()
+        run: |
+          STATUS=${{ job.status }}
+          if [ "$STATUS" = "success" ]; then
+            COLOR="#36a64f"
+            MESSAGE="✅ Tests PASSED"
+          else
+            COLOR="#ff0000"
+            MESSAGE="❌ Tests FAILED"
+          fi
+
+          curl -X POST -H 'Content-type: application/json' \
+            --data "{
+              \"attachments\": [
+                {
+                  \"color\": \"$COLOR\",
+                  \"title\": \"$MESSAGE\",
+                  \"text\": \"GitHub Pages report: https://VigeteX.github.io/LQ_TEST/\"
+                }
+              ]
+            }" \
+            ${{ secrets.SLACK_WEBHOOK_URL }}
