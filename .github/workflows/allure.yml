@@ -69,10 +69,17 @@ jobs:
       - name: Merge allure results
         run: |
           mkdir -p allure-results
-          cp -r artifacts/allure-results-firefox/* allure-results/firefox || true
-          cp -r artifacts/allure-results-chromium/* allure-results/chromium || true
+          cp -r artifacts/allure-results-firefox/* allure-results/ || true
+          cp -r artifacts/allure-results-chromium/* allure-results/ || true
           
+          echo "--- firefox contains ---"
+          ls artifacts/allure-results-firefox/
 
+          echo "--- chromium contains ---"
+          ls artifacts/allure-results-chromium/
+
+          echo "--- merged ---"
+          ls allure-results/
 
       - run: npm install -g allure-commandline --save-dev
 
