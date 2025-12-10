@@ -55,16 +55,23 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - uses: actions/setup-node@v3
-        with:
-          node-version: 20
-
-      - name: Download artifacts
+      - name: Download firefox results
         uses: actions/download-artifact@v4
         with:
-          pattern: allure-results-*
-          merge-multiple: true
-          path: allure-results
+          name: allure-results-firefox
+          path: results/firefox
+
+      - name: Download chromium results
+        uses: actions/download-artifact@v4
+        with:
+          name: allure-results-chromium
+          path: results/chromium
+
+      - name: Merge allure results
+        run: |
+          mkdir -p allure-results
+          cp -r results/firefox/* allure-results/ || true
+          cp -r results/chromium/* allure-results/ || true
 
       - run: npm install -g allure-commandline --save-dev
 
