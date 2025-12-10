@@ -12,25 +12,25 @@ jobs:
     strategy:
       matrix:
         browser: [chromium, firefox]
-    steps:
-      - name: Checkout repo
-        uses: actions/checkout@v3
 
-      - name: Set up Python
-        uses: actions/setup-python@v4
+    steps:
+      - uses: actions/checkout@v3
+
+      - uses: actions/setup-python@v4
         with:
           python-version: '3.11'
 
-      - name: Install dependencies
-        run: |
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 20
+
+      - run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-      - name: Install Playwright browsers
-        run: playwright install --with-deps
+      - run: playwright install --with-deps
 
-      - name: Install Allure CLI
-        run: npm install -g allure-commandline --save-dev
+      - run: npm install -g allure-commandline --save-dev
 
       - name: Run tests
         env:
@@ -39,7 +39,34 @@ jobs:
           BASE_URL: ${{ secrets.BASE_URL }}
           TEST_EMAIL_PREFIX: ${{ secrets.TEST_EMAIL_PREFIX }}
         run: |
-          pytest -n auto --alluredir=allure-results --browser_name=${{ matrix.browser }}
+          mkdir -p allure-results/${{ matrix.browser }}
+          pytest -n auto --alluredir=allure-results/${{ matrix.browser }} --browser_name=${{ matrix.browser }}
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: allure-results-${{ matrix.browser }}
+          path: allure-results/${{ matrix.browser }}
+
+  generate-report:
+    runs-on: ubuntu-latest
+    needs: test
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 20
+
+      - name: Download artifacts
+        uses: actions/download-artifact@v4
+        with:
+          pattern: allure-results-*
+          merge-multiple: true
+          path: allure-results
+
+      - run: npm install -g allure-commandline --save-dev
 
       - name: Generate Allure report
         run: |
@@ -50,27 +77,27 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./allure-report
-        
+
       - name: Send Slack notification
         if: always()
         run: |
-          STATUS=${{ job.status }}
+          STATUS="${{ needs.test.result }}"
           if [ "$STATUS" = "success" ]; then
             COLOR="#36a64f"
-            MESSAGE="✅ Tests PASSED"
+            MESSAGE="✅ All tests passed"
           else
             COLOR="#ff0000"
-            MESSAGE="❌ Tests FAILED"
+            MESSAGE="❌ Some tests failed"
           fi
 
-          curl -X POST -H 'Content-type: application/json' \
-            --data "{
-              \"attachments\": [
-                {
-                  \"color\": \"$COLOR\",
-                  \"title\": \"$MESSAGE\",
-                  \"text\": \"GitHub Pages report: https://VigeteX.github.io/LQ_TEST/\"
-                }
-              ]
-            }" \
-            ${{ secrets.SLACK_WEBHOOK_URL }}
+          curl -X POST -H "Content-type: application/json" \
+          --data "{
+            \"attachments\": [
+              {
+                \"color\": \"$COLOR\",
+                \"title\": \"$MESSAGE\",
+                \"text\": \"Allure Report: https://vigetex.github.io/LQ9/\"
+              }
+            ]
+          }" \
+          ${{ secrets.SLACK_WEBHOOK_URL }}

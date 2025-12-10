@@ -1,5 +1,3 @@
-import random
-
 class ProductsPage:
     def __init__(self, page):
         self.all_products_title = "h2:has-text('All Products')"

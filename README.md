@@ -83,26 +83,17 @@ pages
     login_page.py
     products_page.py
     signup_page.py
-test
-    pageobjects
-        amazon.s3.page.ts
-        base.page.ts
-        common.page.ts
-        coverage.page.ts
-        iot.data.plans.page.ts
-        resources.page.ts
-        voice.ai.agents.page.ts
-    tests
-        test_contact_us_form.py
-        test_login_user_with_correct_email_and_password.py
-        test_login_user_with_incorrect_email_and_password.py
-        test_logout_user.py
-        test_register_user_with_existing_email.py
-        test_register_user.py
-        test_search_product.py
-        test_verify_all_products_and_product_detail_page.py
-        test_verify_subscription_in_home_page.py
-        test_verify_test_cases_page.py
+tests
+    test_contact_us_form.py
+    test_login_user_with_correct_email_and_password.py
+    test_login_user_with_incorrect_email_and_password.py
+    test_logout_user.py
+    test_register_user_with_existing_email.py
+    test_register_user.py
+    test_search_product.py
+    test_verify_all_products_and_product_detail_page.py
+    test_verify_subscription_in_home_page.py
+    test_verify_test_cases_page.py
     utils
 .gitignore
 conftest.py
@@ -111,6 +102,14 @@ Pipfile.lock
 pytest.ini
 README.md
 ```
+
+Environment variables
+Project requires the following environment variables to run tests:
+
+TEST_EMAIL=<your test email>
+TEST_PASSWORD=<your test password>
+BASE_URL=<url under test>
+TEST_EMAIL_PREFIX=<prefix for registration tests>
 
 - **pages** – Page Object Models for the project.  
 - **tests** – Test scripts.  

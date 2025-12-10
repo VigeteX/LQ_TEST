@@ -1,5 +1,3 @@
-import random
-
 class ContactUsPage:
     def __init__(self, page):
         self.page = page
