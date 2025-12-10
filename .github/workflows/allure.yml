@@ -81,10 +81,6 @@ jobs:
           echo "--- merged ---"
           ls allure-results/
             - name: Check merged results
-        
-      - run: |
-          echo "--- Merged allure-results content ---"
-          ls -R allure-results
 
       - run: npm install -g allure-commandline --save-dev
 

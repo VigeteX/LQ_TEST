@@ -5,7 +5,7 @@ from pages.home_page import HomePage
 from pages.login_page import LoginPage
 from conftest import TEST_EMAIL, TEST_PASSWORD
 
-@allure.title("Register User With Existing Email")
+@allure.title("Register User With Existing Email [{browser_type}]")
 def test_signup_flow(page, base_url):
     home = HomePage(page)
     login = LoginPage(page)

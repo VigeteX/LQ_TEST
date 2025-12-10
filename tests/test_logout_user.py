@@ -5,7 +5,7 @@ from pages.home_page import HomePage
 from pages.login_page import LoginPage
 from conftest import TEST_EMAIL, TEST_PASSWORD
 
-@allure.title("Logout user")
+@allure.title("Logout user [{browser_type}]")
 def test_signup_flow(page, base_url):
     home = HomePage(page)
     login = LoginPage(page)

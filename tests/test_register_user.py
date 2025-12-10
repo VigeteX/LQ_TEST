@@ -8,7 +8,7 @@ from conftest import TEST_EMAIL_PREFIX
 from faker import Faker
 faker = Faker()
 
-@allure.title("Register User")
+@allure.title("Register User [{browser_type}]")
 def test_signup_flow(page, base_url):
     home = HomePage(page)
     login = LoginPage(page)

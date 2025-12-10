@@ -4,7 +4,7 @@ import allure
 from pages.home_page import HomePage
 from pages.products_page import ProductsPage
 
-@allure.title("Search Product")
+@allure.title("Search Product [{browser_type}]")
 def test_signup_flow(page, base_url):
     home = HomePage(page)
     products = ProductsPage(page)

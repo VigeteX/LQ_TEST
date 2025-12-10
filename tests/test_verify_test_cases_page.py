@@ -3,7 +3,7 @@ import allure
 
 from pages.home_page import HomePage
 
-@allure.title("Verify Test Cases Page")
+@allure.title("Verify Test Cases Page [{browser_type}]")
 def test_signup_flow(page, base_url):
     home = HomePage(page)
 

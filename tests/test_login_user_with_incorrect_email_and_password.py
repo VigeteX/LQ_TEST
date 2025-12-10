@@ -7,7 +7,7 @@ from pages.signup_page import SignupPage
 from faker import Faker
 faker = Faker()
 
-@allure.title("Login User with correct email and password")
+@allure.title("Login User with correct email and password [{browser_type}]")
 def test_signup_flow(page, base_url):
     home = HomePage(page)
     login = LoginPage(page)
