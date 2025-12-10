@@ -38,9 +38,10 @@ jobs:
           TEST_PASSWORD: ${{ secrets.TEST_PASSWORD }}
           BASE_URL: ${{ secrets.BASE_URL }}
           TEST_EMAIL_PREFIX: ${{ secrets.TEST_EMAIL_PREFIX }}
+
         run: |
           mkdir -p allure-results/${{ matrix.browser }}
-          pytest -n auto --alluredir=allure-results/${{ matrix.browser }} --browser_name=${{ matrix.browser }}
+          pytest --alluredir=allure-results/${{ matrix.browser }} --browser_name=${{ matrix.browser }}
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4
@@ -62,8 +63,6 @@ jobs:
       - name: Download artifacts
         uses: actions/download-artifact@v4
         with:
-          pattern: allure-results-*
-          merge-multiple: false
           path: artifacts
 
       - name: Merge allure results
@@ -71,20 +70,6 @@ jobs:
           mkdir -p allure-results
           cp -r artifacts/allure-results-firefox/* allure-results/ || true
           cp -r artifacts/allure-results-chromium/* allure-results/ || true
-          
-          echo "--- firefox contains ---"
-          ls artifacts/allure-results-firefox/
-
-          echo "--- chromium contains ---"
-          ls artifacts/allure-results-chromium/
-
-          echo "--- merged ---"
-          ls allure-results/
-      
-      - name: Check merged results
-        run: |
-          echo "--- Merged allure-results content ---"
-          ls -R allure-results
 
       - run: npm install -g allure-commandline --save-dev
 
