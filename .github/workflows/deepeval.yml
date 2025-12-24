@@ -25,8 +25,6 @@ jobs:
           pip install -r requirements.txt
 
       - name: Run DeepEval tests (CI mode)
-        env:
-          CI: "true"
         run: |
           deepeval test run tests \
             --report-format json \
