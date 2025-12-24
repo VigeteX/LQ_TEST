@@ -1,4 +1,4 @@
-name: DeepEval LLM Tests
+name: DeepEval LLM Tests (Local LLM Compatible)
 
 on:
   push:
@@ -24,10 +24,9 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-      - name: Run DeepEval tests
+      - name: Run DeepEval tests (CI mode)
         env:
-          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
-          DEEPEVAL_API_KEY: ${{ secrets.DEEPEVAL_API_KEY }}
+          CI: "true"
         run: |
           deepeval test run tests \
             --report-format json \
