@@ -26,9 +26,7 @@ jobs:
 
       - name: Run DeepEval tests (CI mode)
         run: |
-          deepeval test run tests \
-            --report-format json \
-            --report-dir deepeval_reports
+          deepeval test run tests
 
       - name: Upload DeepEval report
         uses: actions/upload-artifact@v4
