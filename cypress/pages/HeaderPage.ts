@@ -8,13 +8,4 @@ export class HeaderPage {
     logoutButton:() => cy.get('div[data-testid="logout"]'),
     
   }
-  openUserMenu() {
-    cy.get('[data-testid="user-icon"]').click();
-  }
-  enterButton() {
-    return cy.get('div[class="NavbarAuthBlock_buttonEnter__c9siH"]');
-  }
-  logout() {
-    cy.contains('Вийти').click();
-  }
 }

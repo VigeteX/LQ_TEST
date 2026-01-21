@@ -1,5 +1,4 @@
 export class LoginPage {
-
   elements ={
     emailField:() => cy.get('input[id*="email"]'),
     passwordField:() => cy.get('input[id="password"]'),
@@ -7,8 +6,7 @@ export class LoginPage {
     hidepassworIcon:() => cy.get('div[data-testid="loginPopup"]').find('div[data-testid="reactHookButton"]'),
     errorMessage:() => cy.get('[data-testid="errorMessage"]'),
     alert:() => cy.get('[role="alert"]'),
-    authClose:() => cy.get('[data-testid="authClose"]'),
-      
+    authClose:() => cy.get('[data-testid="authClose"]'),  
   }
   check_error_message(message:string){
     this.elements.alert().should('be.visible').and('have.text', message)

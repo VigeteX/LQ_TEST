@@ -1,4 +1,4 @@
-name: Cypress Tests
+name: Cypress Tests with Allure
 
 on:
   push:
@@ -30,4 +30,16 @@ jobs:
         run: npx cypress verify
 
       - name: Run Cypress tests
-        run: npx cypress run --browser chrome
+        run: |
+          npx cypress run --browser chrome --reporter @shelex/cypress-allure-plugin
+        continue-on-error: false
+
+      - name: Generate Allure Report
+        run: |
+          npx allure generate cypress/allure-results --clean -o cypress/allure-report
+
+      - name: Upload Allure Report as artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: allure-report
+          path: cypress/allure-report
