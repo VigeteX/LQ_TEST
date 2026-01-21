@@ -8,6 +8,7 @@ describe('Login flow', () => {
     
     beforeEach(() => {
         cy.viewport(1920, 1080);
+        cy.allure().step('Open login page', true);
         cy.visit('/');
     });
 
