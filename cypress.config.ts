@@ -5,8 +5,7 @@ import allureWriter from '@shelex/cypress-allure-plugin/writer';
 export default defineConfig({
   e2e: {
     setupNodeEvents(on, config) {
-      // allureWriter(on, config);
-      require('@shelex/cypress-allure-plugin/writer')(on, config);
+      allureWriter(on, config);
       return config;
     },
     baseUrl: process.env.BASE_URL,
