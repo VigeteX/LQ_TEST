@@ -1,6 +1,6 @@
 import { LoginPage } from '../pages/LoginPage';
 import { HeaderPage } from '../pages/HeaderPage';
-import { validUser, validPhones, invalidEmails, invalidPasswords, invalidPhones, wrongPassword } from '../fixtures/login.data';
+import { validUser, validPhones, invalidEmails, invalidPasswords, invalidPhones, wrongPassword, errorMessages } from '../fixtures/login.data';
 
 describe('Login flow', () => {
     const loginPage = new LoginPage();
@@ -11,18 +11,18 @@ describe('Login flow', () => {
         cy.visit('/');
     });
 
-    it('C200', () => {
+    it('C200 Authorization with empty field', () => {
         header.elements.enterButton().click();
 
         loginPage.elements.emailField().type(validUser.email).should('have.value', validUser.email);
         loginPage.elements.submitButton().click();
-        loginPage.check_error_message('Поле не може бути порожнім')
+        loginPage.check_error_message(errorMessages.emptyField)
 
         loginPage.elements.emailField().clear()
 
         loginPage.elements.passwordField().type(validUser.password).should('have.value', validUser.password);
         loginPage.elements.submitButton().click();
-        loginPage.check_error_message('Поле не може бути порожнім')
+        loginPage.check_error_message(errorMessages.emptyField)
     });
    
     it('C201 Authorization with valid email and password', () => {
@@ -31,9 +31,9 @@ describe('Login flow', () => {
         loginPage.elements.emailField().type(validUser.email).should('have.value', validUser.email);
         loginPage.elements.passwordField().type(validUser.password).should('have.value', validUser.password);;
 
-        loginPage.elements.hidepassworIcon().click();
+        loginPage.elements.hidePassworIcon().click();
         loginPage.elements.passwordField().should('have.attr', 'type', 'text');
-        loginPage.elements.hidepassworIcon().click();
+        loginPage.elements.hidePassworIcon().click();
         loginPage.elements.passwordField().should('have.attr', 'type', 'password');
 
         loginPage.elements.submitButton().click();
@@ -62,7 +62,7 @@ describe('Login flow', () => {
             it(`invalid email: ${email}`, () => {
                 header.elements.enterButton().click();
                 loginPage.login(email, validUser.password)
-                loginPage.check_error_message('Неправильний формат email або номера телефону')
+                loginPage.check_error_message(errorMessages.invalidEmailOrPhone)
                 loginPage.elements.authClose().click()
             });
         });
@@ -71,7 +71,7 @@ describe('Login flow', () => {
             it(`invalid password: ${password}`, () => {
                 header.elements.enterButton().click();
                 loginPage.login(validUser.email, password)
-                loginPage.check_error_message('Пароль повинен містити як мінімум 1 цифру, 1 велику літеру і 1 малу літеру, також не повинен містити кирилицю та пробіли')
+                loginPage.check_error_message(errorMessages.invalidPassword)
                 loginPage.elements.authClose().click()
             });
         });
@@ -88,7 +88,7 @@ describe('Login flow', () => {
             it(`invalid phone: ${phone}`, () => {
                 header.elements.enterButton().click();
                 loginPage.login(phone, validUser.password)
-                loginPage.check_error_message('Неправильний формат email або номера телефону')
+                loginPage.check_error_message(errorMessages.invalidEmailOrPhone)
                 loginPage.elements.authClose().click()
             });
         });
