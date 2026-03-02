@@ -1,11 +1,9 @@
-import { LoginPage } from '../pages/LoginPage';
-import { HeaderPage } from '../pages/HeaderPage';
-import { validUser, validPhones, invalidEmails, invalidPasswords, invalidPhones, wrongPassword, errorMessages } from '../fixtures/login.data';
+import loginPage from '../pages/LoginPage';
+import header from '../pages/HeaderPage';
+import { validUser, validPhones, invalidEmails, invalidPasswords, invalidPhones, wrongPassword } from '../fixtures/login.data';
+import { authErrorMessages } from '../constants/uiTexts';
 
-describe('Login flow', () => {
-    const loginPage = new LoginPage();
-    const header = new HeaderPage();
-    
+describe('Login flow', () => {   
     beforeEach(() => {
         cy.viewport(1920, 1080);
         cy.visit('/');
@@ -16,13 +14,13 @@ describe('Login flow', () => {
 
         loginPage.elements.emailField().type(validUser.email).should('have.value', validUser.email);
         loginPage.elements.submitButton().click();
-        loginPage.check_error_message(errorMessages.emptyField)
+        loginPage.check_error_message(authErrorMessages.emptyField)
 
         loginPage.elements.emailField().clear()
 
         loginPage.elements.passwordField().type(validUser.password).should('have.value', validUser.password);
         loginPage.elements.submitButton().click();
-        loginPage.check_error_message(errorMessages.emptyField)
+        loginPage.check_error_message(authErrorMessages.emptyField)
     });
    
     it('C201 Authorization with valid email and password', () => {
@@ -62,7 +60,7 @@ describe('Login flow', () => {
             it(`invalid email: ${email}`, () => {
                 header.elements.enterButton().click();
                 loginPage.login(email, validUser.password)
-                loginPage.check_error_message(errorMessages.invalidEmailOrPhone)
+                loginPage.check_error_message(authErrorMessages.invalidEmailOrPhone)
                 loginPage.elements.authClose().click()
             });
         });
@@ -71,7 +69,7 @@ describe('Login flow', () => {
             it(`invalid password: ${password}`, () => {
                 header.elements.enterButton().click();
                 loginPage.login(validUser.email, password)
-                loginPage.check_error_message(errorMessages.invalidPassword)
+                loginPage.check_error_message(authErrorMessages.invalidPassword)
                 loginPage.elements.authClose().click()
             });
         });
@@ -88,7 +86,7 @@ describe('Login flow', () => {
             it(`invalid phone: ${phone}`, () => {
                 header.elements.enterButton().click();
                 loginPage.login(phone, validUser.password)
-                loginPage.check_error_message(errorMessages.invalidEmailOrPhone)
+                loginPage.check_error_message(authErrorMessages.invalidEmailOrPhone)
                 loginPage.elements.authClose().click()
             });
         });
