@@ -24,16 +24,14 @@ export class ProductsPage {
     
   }
   addUnits(amount: number){
+    this.elements.units().should('have.length.greaterThan', 0)
     for (let i = 0; i < amount; i++) {
       this.elements.units().eq(i).within(() => {
           this.elements.favouriteButoon().find('path').last().then(($path) => {
               if (!$path.attr('fill')) {
                   this.elements.favouriteButoon().click();
-                  // this.elements.favouriteButoon().find('path').last().should('have.attr', 'fill', { timeout: 15000 });
               }
-              // this.elements.favouriteButoon().find('path').last().should('have.attr', 'fill', { timeout: 15000 });
           });
-          // this.elements.favouriteButoon().find('path').last().should('have.attr', 'fill', { timeout: 15000 });
       });
     }
   }
